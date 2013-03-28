@@ -1,0 +1,548 @@
+/*  screen.css - Zepheira, by Ryan Lee
+    Based on MoinMoin Default Styles from modernized theme
+    Copyright (c) 2001, 2002, 2003 by Juergen Hermann
+*/
+
+/* content styles */
+
+/* debug 
+* {border: 1px dotted blue;}
+*/
+
+body {
+    padding: 0;
+    border: 0;
+    background: #faf8f6;
+}
+
+a:link { color: #720; text-decoration: none; }
+a:link:hover, a:link:active { text-decoration: underline; }
+a:visited { text-decoration: none; color: #720;}
+a:visited:hover { text-decoration: underline; color: #933;}
+a.nonexistent:link { background: #aba; color: #f00; font-size: 120%; font-weight: bold; padding: 2px; }
+a.nonexistent:hover { text-decoration: underline }
+a.nonexistent:visited { color: #f00; }
+a#userhome.nonexistent, #page-history table a.nonexistent { color: #666; font-size: 100%; font-weight: normal; background: transparent; padding: 0; }
+
+/* @@@ color */
+a.download {
+    font-size: 120%; 
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    background: #E7E7E7;
+    border: 1px solid #9C9C9C;
+    padding: 0.5em;
+    text-align: center;
+}
+
+textarea {
+    font-size: 1em;
+    font-family: monospace;
+}
+
+.disabled {
+    /* IE ignore disabled attribute, but at least show items in gray */
+    color: gray;
+}
+
+/* user interface styles */
+
+#header {
+    margin: 0;
+    padding: 0px;
+    background: #faf8f6;
+    border-bottom: 1px solid #ccc7c2;
+    line-height: 1.1em;
+}
+
+#mastwrap {
+    padding-bottom: 5px;
+}
+
+#masthead {
+}
+
+#logo {
+    margin: 5px 0 5px 5px;
+    /* contains image and/or text link */
+    float: left;
+    font-size: 2em;
+    line-height: 1.2em;
+    font-weight: bold;
+    padding: 0;
+}
+
+*[dir="rtl"] #logo {
+    float: right;
+}
+
+#logo img {
+    vertical-align: middle;
+}
+
+#logo a {
+    text-decoration: none;
+}
+
+#username {
+    clear: right;
+    margin: 0 10px;
+    padding: 0;
+    text-align: right;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+*[dir="rtl"] #username {
+    top: 1.8em; 
+    text-align: left;
+}
+
+#username li {
+    display: inline;
+    padding: 0 4px;
+}
+
+#username li:before {
+    content: " ";
+}
+
+#username li:first-child:before {
+    content: "";
+}
+
+#username form {
+    display: inline;
+}
+
+#username input {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: black;
+    font-size: 0.82em;
+    cursor: pointer;
+}
+
+#searchform {
+    margin: 4px 0.5em 8px 0.5em;
+    padding: 0;
+    font-size: 0.82em;
+    float: right;
+    clear: right;
+    text-align: right;
+}
+
+*[dir="rtl"] #searchform {
+    float: left;
+    clear: left;
+    text-align: left;
+}
+#searchform input {
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+#pagetrail {
+    clear: both;
+    color: #777;
+    display: block;
+    margin: 0 0.88em 0.25em 30px;
+    padding: 0;
+    font-size: 0.88em;
+}
+
+#pagetrail a {
+    padding: 0 5px;
+}
+
+*[dir="rtl"] #pagetrail {
+    clear: left;
+}
+
+#interwiki {
+    font-size: 1em;
+}
+
+#locationline {
+    background: #fff;
+    clear: both;
+    margin: 0;
+    padding: 10px 15px 0;
+    font-size: 100%;
+    font-weight: normal;
+    text-align: right;
+}
+
+*[dir="rtl"] #locationline {
+    clear: left;
+}
+
+#header #locationline {
+    background: transparent;
+    padding: 15px 15px 10px;
+    text-align: left;
+}
+
+#pagelocation {
+    font-size: 1.25em;
+}
+
+
+*[dir="rtl"] #pagetrail span.sep {
+    visibility: hidden;
+}
+*[dir="rtl"] #pagetrail span.sep:after {
+    content: " « ";
+}
+
+#navibar {
+    clear: both;  /* problem: clear: right; aligns nicely right of logo,
+                    but lets it float high in the header, disconnected from ground */
+    display: block;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 0.82em;
+    zoom: 1; /* for avoiding a gap between navibar and pageline on IE */
+}
+
+#navibar li {
+    float: left;
+    display: inline;
+    margin: 0 2px;
+    padding: 2px 5px;
+    border: 1px solid #acd;
+    border-bottom: none;
+    white-space: nowrap;
+}
+
+*[dir="rtl"] #navibar li {
+    float: right;
+}
+
+#navibar li.wikilink {
+    background: white; /*url(../img/tab-wiki.png) repeat-x;*/
+}
+
+#navibar li.userlink {
+    background: #E6EAF0; /*url(../img/tab-user.png) repeat-x;*/
+}
+
+#navibar a, #navibar a:visited {
+    color: black;
+    text-decoration: none;    
+}
+
+#navibar li.current a {
+    font-weight: bold;
+}
+
+#navibar li:hover {
+    background: #d6e4f9;
+}
+
+#navibar li.current, #navibar li.current:hover {
+    background: #81BBF2; /* url(../img/tab-selected.png) repeat-x; */
+    border: 1px solid #4d7da9;
+    border-bottom: 1px solid #81bbf2;
+    margin-bottom: -1px;
+}
+
+#pageline {
+    clear: both;
+    visibility: hidden;
+}
+
+.editbar {
+    clear: left;
+    display: block;
+    margin: 0;
+    padding: 5px 25px;
+    background: #ece7e2;
+    font-size: 0.85em;
+}
+
+#header .editbar {
+    border-top: 1px solid #ccc7c2;
+}
+
+#footer .editbar {
+    border-bottom: 1px solid #ccc7c2;
+}
+
+.editbar form, .editbar form div {
+    display: inline;
+    margin: 0;
+}
+
+.editbar select {
+    vertical-align: middle;
+}
+
+.editbar li {
+    display: inline;
+    padding: 0;
+    margin: 4px 10px;
+}
+
+.editbar a, .editbar a:visited { color: #6f5452; }
+
+.extranav {
+    float: right;
+    margin-top: 2px;
+    padding-top: 5px;
+    margin: 0;
+    padding: 0 8px;
+    white-space: nowrap;
+    font-size: 0.85em;
+}
+
+.extranav li {
+    float: right;
+    display: block;
+    padding-top: 5px;
+    margin: 2px 10px;
+}
+
+*[dir="rtl"] .extranav li {
+        float: left;
+}
+
+#message {
+    clear: both;
+    font-size: 0.9em;
+    line-height: 1.3;
+    margin: 0;
+    padding: 5px 40px;
+    border-bottom: 1px solid #999;
+    background: #ccc9c2;
+}
+
+#message p {
+    margin: 5px 0;
+    padding: 0;
+    /* font-weight: bold; */
+}
+
+#message div.buttons {
+    font-weight: normal;
+}
+
+.dialog form {
+    margin: 0 15px;
+}
+
+.dialog td {
+    border: none;
+    padding: 5px;
+}
+
+.dialog td.label {
+    text-align: right;
+    font-weight: bold;
+    width: 25%;
+}
+
+*[dir="rtl"] .dialog td.label {
+    text-align: left;
+}
+
+.dialog td.content input {
+    width: 100%;
+}
+
+#page {
+    background: #fff;
+    margin: 0;
+    padding: 2px 20px 20px 70px;
+
+    /* theses are some Firefox 1.5b1 specific extensions, see also the CSS3 draft.
+    -moz-column-width: 25em;
+    -moz-column-gap: 2em;
+    -moz-column-rule: solid black 0.3em;     --   doesn't work yet with 1.5b1!
+
+    TODO: make text/gui editor NOT use #page css, we don't want columns there!
+    */
+}
+
+#editor {
+    margin: 0.5em 0 0;
+}
+
+/* We use here dumb css1 ids because of IE suckiness */
+#editor-textarea {
+    font-size: 1.1em;
+}
+
+#editor-textarea, #editor-help {
+    font-family: monospace;
+    border: 1px solid #ccc7c2;
+    color: black;
+    background-color: white;
+    padding: 3px;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+#editor-help {
+    font-size: small;
+    background-color: #faf8f6;
+    padding: 10px 0 10px 10px;
+}
+
+#editor-comment {
+    font-size: 100%;
+    border: 1px solid #ccc7c2;
+    color: black;
+    background-color: white;
+    vertical-align: middle;
+    padding: 1px;
+    display: inline;
+    width: 70%;
+}
+
+#preview, #previewbelow {
+    border: 1px solid #6C7680;
+    padding: 10px 30px 20px 30px;
+    background: url(../img/draft.png);
+    margin-top: 0.5em;
+}
+
+#textcha {
+    font-size: 100%;
+    margin-top: 0.5em;
+    border: 2px solid #FF8888;
+    color: black;
+    vertical-align: middle;
+    padding: 3px 2px;
+}
+
+#textcha-answer {
+    border: 2px solid #000000;
+    padding: 3px 2px;
+}
+
+input.button {
+    /*
+    border: 1px solid #8cacbb;  
+    color: black;
+    background-color: #CCCCCC;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 100%;
+    cursor: pointer;
+    margin: 2px;
+    padding: 1px;
+    display: inline;
+    */
+}
+
+#footer {
+    border-top: 1px solid #ccc7c2;
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+#credits, #version, #timings{
+    clear: both;
+    padding: 5px 30px 5px;
+    font-size: 0.88em;
+    color: #333;
+}
+
+#credits li, #timings li {
+    display: inline;
+    margin: 0;
+    padding: 0 5px;
+}
+
+#credits img {
+    vertical-align: middle;
+}
+
+.diff {
+    width:99%;
+    table-layout: fixed;
+}
+
+.diff-header {
+    font-weight: bold;
+}
+
+.diff-title {
+    background-color: #C0C0C0;
+}
+
+.diff-added {
+    background-color: #E0FFE0;
+    vertical-align: top;
+    width: 50%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: courier, monospace;
+}
+
+.diff-removed {
+    background-color: #FFFFE0;
+    vertical-align: top;
+    width: 50%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: courier, monospace;
+}
+
+.diff-added span {
+    background-color: #80FF80;
+}
+
+.diff-removed span {
+    background-color: #FFFF80;
+}
+
+td.diff-info {
+    vertical-align: top;
+}
+
+div.diff-info {
+    white-space: nowrap;
+}
+
+div.diff-info-rev-comment span.diff-info-value {
+    white-space: normal;
+}
+
+div.diff-info-header {
+    background-color: #E8E8E8;
+    width: 100%;
+    padding: 0.25em 0.5em;
+    margin: -0.25em -0.5em;
+    margin-bottom: 0.25em;
+    text-align: center;
+}
+
+td.diff-same {
+    text-align: center;
+    border: 0;
+}
+
+table.navigation {
+    float: right;
+    margin: 2px;
+}
+
+#openididentifier {
+    background: url(../../common/openid.png) no-repeat;
+    background-position: 0 50%;
+    padding-left: 18px;
+}
+
+#page h1, h2, h3, h4, h5, h6 {
+    color: #663f3f
+}
+
+#page h1, h2, h3 {
+    border-bottom: 1px solid #eee9e9;
+}
